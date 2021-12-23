@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.tesseractapp.demo.viewmodel.NewsItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:setBg="@{itemViewModel.getSetBg}"
+        android:id="@+id/item">
+
+        <ImageView
+            android:id="@+id/ivNews"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_12sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:onClick="@{()->itemViewModel.onView()}"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImg="@{itemViewModel.image}" />
+
+
+        <com.tesseractapp.demo.customVIew.MyTextViewBold
+            android:id="@+id/tvHeading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:maxLines="2"
+            android:text="@{itemViewModel.title}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivNews"
+            app:layout_constraintTop_toTopOf="@+id/ivNews" />
+
+        <com.tesseractapp.demo.customVIew.MyTextViewRegular
+            android:id="@+id/tvNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:maxLines="3"
+            android:text="@{itemViewModel.news}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivNews"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tesseractapp.demo.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:id="@+id/parent"
+        tools:context=".view.activity.LoginActivity">
+
+        <com.tesseractapp.demo.customVIew.MyTextInputLayout
+            android:id="@+id/myTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_100sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.tesseractapp.demo.customVIew.MyTextInputEditTextRegular
+                android:id="@+id/email_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:digits="@string/email_digit"
+                android:drawablePadding="@dimen/_12sdp"
+                android:hint="@string/email_hint"
+                android:inputType="textEmailAddress"
+                android:onTextChanged="@{viewModel::onEmailChange}"
+                android:text="@={viewModel.loginModel.emailId}"
+                android:textSize="@dimen/_16sdp"
+                app:drawableLeftValidation="@{viewModel.loginModel.isValid}"
+                app:onFocus="@{viewModel.userIdFocusChangeListener}" />
+
+        </com.tesseractapp.demo.customVIew.MyTextInputLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:textColor="@android:color/holo_red_dark"
+            app:errorText="@{viewModel.loginModel.emailIdError}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myTextInputLayout" />
+
+        <com.tesseractapp.demo.customVIew.MyTextInputLayout
+            android:id="@+id/myTextInputLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:passwordToggleEnabled="true">
+
+            <com.tesseractapp.demo.customVIew.MyTextInputEditTextRegular
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/pass_hint"
+                android:inputType="textPassword"
+                android:text="@={viewModel.loginModel.password}"
+                android:textSize="@dimen/_16sdp"
+                app:onFocus="@{viewModel.passFocusChangeListener}" />
+
+        </com.tesseractapp.demo.customVIew.MyTextInputLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:textColor="@android:color/holo_red_dark"
+            app:errorText="@{viewModel.loginModel.passwordError}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myTextInputLayout2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModel.onLoginClick()}"
+            android:text="@string/login"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

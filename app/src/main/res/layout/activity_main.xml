@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tesseractapp.demo.viewmodel.DashboardViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".view.activity.Dashboard">
+
+        <com.tesseractapp.demo.customVIew.MyTextViewBold
+            android:id="@+id/myTextViewBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Simple User List"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_24sdp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tesseractapp.demo.customVIew.MyTextViewSemiBold
+            android:id="@+id/tvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@{viewModel.location}"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myTextViewBold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFeeds"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLocation"
+            app:layout_constraintVertical_bias="0.485"
+            tools:itemCount="10"
+            tools:listitem="@layout/user_items" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

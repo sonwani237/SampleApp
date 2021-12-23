@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">NEWS APP</string>
+
+    <string name="search">Search</string>
+    <string name="save">Save</string>
+    <string name="read">Read</string>
+    <string name="email_hint">Please enter E-mail</string>
+    <string name="pass_hint">Please enter password</string>
+    <string name="login">Login</string>
+
+    <string name="empty_userId_Error">Please enter email or mobile number</string>
+    <string name="invalid_pass">Please enter valid password</string>
+    <string name="email_digit">0123456789abcdefghijklmnopqrstuvwxyz._@</string>
+    <string name="logout">logout</string>
+    <string name="empty_password">Password can\'t be blank</string>
+    <string name="invalid_email">Please enter valid email Id</string>
+    <string name="click_for_lang">Click for Hindi</string>
+    <string name="retry">Retry</string>
+    <string name="network_error">Oops! Slow internet connection.</string>
+</resources>
